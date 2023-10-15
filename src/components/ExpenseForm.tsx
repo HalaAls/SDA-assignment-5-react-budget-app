@@ -1,8 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import IncomeExpenseTypes from "../types/componentsTypes";
 
+type expenseAmountProps = {
+  getExpensAmount: (newExpenseAmount: number) => void
+}
 
-const ExpenseForm = () => {
+const ExpenseForm = ( props : expenseAmountProps) => {
   const [expense, setExpense] = useState<IncomeExpenseTypes>({
     source: "",
     amount: "0",
@@ -20,6 +23,7 @@ const ExpenseForm = () => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    props.getExpensAmount(Number(expense.amount));
     if(expense.source && expense.amount && expense.date){
       setExpenses((prevExpenses) => {
         return [...prevExpenses, expense];
@@ -28,7 +32,7 @@ const ExpenseForm = () => {
    
   };
   return (
-    <div>
+    <div className="formDiv">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="source">Expense Source</label>

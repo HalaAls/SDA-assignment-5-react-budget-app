@@ -18,7 +18,7 @@ const TargetForSaving = (props: TargetForSavingType) => {
 
 
   return (
-    <div>
+    <div className="formDiv">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="target">Set Target</label>
@@ -28,7 +28,7 @@ const TargetForSaving = (props: TargetForSavingType) => {
       </form>
       <p>Target: {target} EUR</p>
       <p>Current Saving: {props.savingAmount} EUR</p>
-      <progress max="1000" value={300}/>
+      <progress max={target} value={props.savingAmount}/>
     </div>
   );
 };
