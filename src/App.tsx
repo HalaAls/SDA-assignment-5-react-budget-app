@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'; 
+import IncomeForm  from './components/IncomeForm';
+import ExpenseForm from './components/ExpenseForm';
+import TargetForSaving from './components/TargetForSaving';
+import TransferToSaving from './components/TransferToSaving';
+const App = () => {
+  const [savingAmount, setSavingAmount] = useState(0);
 
-function App() {
+
+
+  const getSavingAmount = (amount : number) => {
+    setSavingAmount(amount);
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IncomeForm />
+      <ExpenseForm />
+      <TargetForSaving savingAmount={savingAmount}/>
+      <TransferToSaving getSavingAmount={getSavingAmount}/>
+
     </div>
   );
-}
+};
 
 export default App;
