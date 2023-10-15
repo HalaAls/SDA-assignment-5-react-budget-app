@@ -2,14 +2,15 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import IncomeForm from "./IncomeForm";
 import ExpenseForm from "./ExpenseForm";
 
-type TransferToSavingType = {
+type TransferToSaving = {
   getSavingAmount: (amount: number) => void;
   balance: number;
 };
-const TransferToSaving = (props: TransferToSavingType) => {
+const TransferToSaving = (props: TransferToSaving) => {
   const [transferAmount, setTransferAmount] = useState(0);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTransferAmount(Number(event.target.value));
+    const transferAmount = Number(event.target.value);
+    setTransferAmount(transferAmount);
   };
 
   const handleSubmit = (event: FormEvent) => {
@@ -17,7 +18,6 @@ const TransferToSaving = (props: TransferToSavingType) => {
     props.getSavingAmount(transferAmount);
     setTransferAmount(0);
   };
-
 
   return (
     <div className="formDiv">

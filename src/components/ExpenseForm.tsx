@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import IncomeExpenseTypes from "../types/componentsTypes";
 
-type expenseAmountProps = {
-  getExpensAmount: (newExpenseAmount: number) => void
-}
+type expenseAmount = {
+  getExpensAmount: (newExpenseAmount: number) => void;
+};
 
-const ExpenseForm = ( props : expenseAmountProps) => {
+const ExpenseForm = (props: expenseAmount) => {
   const [expense, setExpense] = useState<IncomeExpenseTypes>({
     source: "",
     amount: "0",
@@ -23,13 +23,13 @@ const ExpenseForm = ( props : expenseAmountProps) => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    props.getExpensAmount(Number(expense.amount));
-    if(expense.source && expense.amount && expense.date){
+    const expenseAmount = Number(expense.amount);
+    props.getExpensAmount(expenseAmount);
+    if (expense.source && expense.amount && expense.date) {
       setExpenses((prevExpenses) => {
         return [...prevExpenses, expense];
       });
     }
-   
   };
   return (
     <div className="formDiv">
@@ -70,11 +70,15 @@ const ExpenseForm = ( props : expenseAmountProps) => {
         <button> Add Expense</button>
       </form>
       <ul>
-        {expenses.length > 0 ?
-         expenses.map((expense,index) => (
-        <li key={index}>{expense.source}: {expense.amount}EUR on {expense.date}</li>
-        )) : <li>No Avaliable Data</li>
-      }
+        {expenses.length > 0 ? (
+          expenses.map((expense, index) => (
+            <li key={`${expense.date}-${expense.source}-${expense.amount}`}>
+              {expense.source}: {expense.amount}EUR on {expense.date}
+            </li>
+          ))
+        ) : (
+          <li>No Avaliable Data</li>
+        )}
       </ul>
     </div>
   );
