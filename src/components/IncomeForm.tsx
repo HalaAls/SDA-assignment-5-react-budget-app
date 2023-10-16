@@ -6,13 +6,13 @@ type incomeAmount = {
 };
 
 const IncomeForm = (props: incomeAmount) => {
+  const [incomes, setIncomes] = useState<IncomeExpenseTypes[]>([]);
   const [income, setIncome] = useState<IncomeExpenseTypes>({
     source: "",
     amount: "0",
     date: "",
+    id: "",
   });
-
-  const [incomes, setIncomes] = useState<IncomeExpenseTypes[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -20,18 +20,20 @@ const IncomeForm = (props: incomeAmount) => {
       return { ...prevIncome, [name]: value };
     });
   };
-
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const incomeAmount = Number(income.amount);
     props.getIncomeAmount(incomeAmount);
-    console.log(incomes);
-
     if (income.source && income.amount && income.date) {
+      income.id = `${income.date}-${income.amount}-${income.source}`;
       setIncomes((prevIncomes) => {
         return [...prevIncomes, income];
       });
     }
+  };
+  const handleDelete = (id: string) => {
+    const updatedIncomes = incomes.filter((income) => income.id !== id);
+    setIncomes(updatedIncomes);
   };
 
   return (
@@ -75,7 +77,13 @@ const IncomeForm = (props: incomeAmount) => {
       <ul>
         {incomes.length ? (
           incomes.map((income) => (
-            <li key={`${income.date}-${income.source}-${income.amount}`}>
+            <li key={income.id}>
+              <button
+                className="deleteButton"
+                onClick={() => handleDelete(income.id)}
+              >
+                x
+              </button>
               {income.source}: {income.amount}EUR on {income.date}
             </li>
           ))

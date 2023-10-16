@@ -10,6 +10,7 @@ const ExpenseForm = (props: expenseAmount) => {
     source: "",
     amount: "0",
     date: "",
+    id : ""
   });
 
   const [expenses, setExpenses] = useState<IncomeExpenseTypes[]>([]);

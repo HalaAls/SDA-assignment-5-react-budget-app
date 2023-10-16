@@ -6,19 +6,19 @@ This repository contains a React application to manage incomes, expenses, and sa
 
 Apply TypeScript to complete this assignment. The application includes the following features:
 
-- Create UI for a one-page application to store incomes, expenses, and saving targets, saving amount
-- Implement features to add income sources, value and date.
-- Implement features to add expense sources, value, and date.
-- Implement features to add the value of the target saving.
-- Implement features to add the value of the saving amount.
+- ✅ Create UI for a one-page application to store incomes, expenses, and saving targets, saving amount
+- ✅ Implement features to add income sources, value and date.
+- ✅ Implement features to add expense sources, value, and date.
+- ✅ Implement features to add the value of the target saving.
+- ✅ Implement features to add the value of the saving amount.
 
 ## Level 2: Additional Requirements
 
 In addition to the basic requirements, the application enhances its functionality with the following features:
 
-- Calculate the account balance using the formula: income - expense - saving = balance.
-- Implement a feature to transfer the balance amount to the saving amount.
-- Calculate the total of the current saving and the percentage of the current saving amount / target of saving.
+- ✅ Calculate the account balance using the formula: income - expense - saving = balance.
+- ✅ Implement a feature to transfer the balance amount to the saving amount.
+- ✅ Calculate the total of the current saving and the percentage of the current saving amount / target of saving.
 - Add a delete button to remove items in income and expense sources.
 
 ## Level 3: Bonus Requirements
