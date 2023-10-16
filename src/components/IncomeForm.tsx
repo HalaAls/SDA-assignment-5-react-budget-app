@@ -25,14 +25,14 @@ const IncomeForm = (props: incomeAmount) => {
     const incomeAmount = Number(income.amount);
     props.getIncomeAmount(incomeAmount);
     if (income.source && income.amount && income.date) {
-      income.id =  `${income.date}-${income.amount}-${income.source}`
+      income.id = `${income.date}-${income.amount}-${income.source}`;
       setIncomes((prevIncomes) => {
         console.log(income.id);
         return [...prevIncomes, income];
       });
     }
   };
-  const handleDelete = (id : string) => {
+  const handleDelete = (id: string) => {
     const updatedIncomes = incomes.filter((income) => income.id !== id);
     setIncomes(updatedIncomes);
   };
@@ -78,7 +78,12 @@ const IncomeForm = (props: incomeAmount) => {
         {incomes.length ? (
           incomes.map((income) => (
             <li key={income.id}>
-              <button className="deleteButton" onClick={() => handleDelete(income.id)}>x</button>
+              <button
+                className="deleteButton"
+                onClick={() => handleDelete(income.id)}
+              >
+                x
+              </button>
               {income.source}: {income.amount}EUR on {income.date}
             </li>
           ))

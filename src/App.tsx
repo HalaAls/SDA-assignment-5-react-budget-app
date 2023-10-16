@@ -38,7 +38,7 @@ const App = () => {
   // now i have the total incomes , total expenses , total saving
   // i want to Calculate the account balance using the formula: income - expense - saving = balance.
 
-    const balance = incomesAmount - expensesAmount - savingsAmount;
+  const balance = incomesAmount - expensesAmount - savingsAmount;
 
   return (
     <section className="App">

@@ -26,7 +26,7 @@ const ExpenseForm = (props: expenseAmount) => {
     const expenseAmount = Number(expense.amount);
     props.getExpensAmount(expenseAmount);
     if (expense.source && expense.amount && expense.date) {
-      expense.id =  `${expense.date}-${expense.amount}-${expense.source}`
+      expense.id = `${expense.date}-${expense.amount}-${expense.source}`;
       setExpenses((prevExpenses) => {
         return [...prevExpenses, expense];
       });
@@ -80,7 +80,10 @@ const ExpenseForm = (props: expenseAmount) => {
             <li key={expense.id}>
               <button
                 className="deleteButton"
-                onClick={() => handleDelete(expense.id)}>x</button>
+                onClick={() => handleDelete(expense.id)}
+              >
+                x
+              </button>
               {expense.source}: {expense.amount}EUR on {expense.date}
             </li>
           ))
