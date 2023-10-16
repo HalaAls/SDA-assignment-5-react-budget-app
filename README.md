@@ -19,7 +19,7 @@ In addition to the basic requirements, the application enhances its functionalit
 - ✅ Calculate the account balance using the formula: income - expense - saving = balance.
 - ✅ Implement a feature to transfer the balance amount to the saving amount.
 - ✅ Calculate the total of the current saving and the percentage of the current saving amount / target of saving.
-- Add a delete button to remove items in income and expense sources.
+- ➡️Almost done➡️Add a delete button to remove items in income and expense sources.
 
 ## Level 3: Bonus Requirements
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 
@@ -15,10 +15,10 @@ const App = () => {
   const getIncomeAmount = (newIncomeAmount: number) => {
     console.log(newIncomeAmount);
     setIncomesAmount((prevIncomes) => {
+      console.log(prevIncomes);
       return prevIncomes + newIncomeAmount;
     });
   };
-
   // repeat the same for expense
   const [expensesAmount, setExpensesAmount] = useState(0);
   const getExpensAmount = (newExpenseAmount: number) => {
@@ -29,12 +29,16 @@ const App = () => {
 
   const [savingsAmount, setSavingsAmount] = useState(0);
   const getSavingAmount = (newSavingAmount: number) => {
+    console.log(newSavingAmount);
     setSavingsAmount((prevSavings) => {
       return prevSavings + newSavingAmount;
     });
   };
 
-  const balance = incomesAmount - expensesAmount - savingsAmount;
+  // now i have the total incomes , total expenses , total saving
+  // i want to Calculate the account balance using the formula: income - expense - saving = balance.
+
+    const balance = incomesAmount - expensesAmount - savingsAmount;
 
   return (
     <section className="App">
