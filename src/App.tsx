@@ -18,7 +18,6 @@ const App = () => {
       console.log(prevIncomes);
       return prevIncomes + newIncomeAmount;
     });
-    updateBalance();
   };
   // repeat the same for expense
   const [expensesAmount, setExpensesAmount] = useState(0);
@@ -28,7 +27,6 @@ const App = () => {
       // console.log(prevExpenses);
       return prevExpenses + newExpenseAmount;
     });
-    updateBalance();
   };
 
   const [savingsAmount, setSavingsAmount] = useState(0);
@@ -38,17 +36,12 @@ const App = () => {
       // console.log(prevSavings);
       return prevSavings + newSavingAmount;
     });
-    updateBalance();
   };
 
   // now i have the total incomes , total expenses , total saving
   // i want to Calculate the account balance using the formula: income - expense - saving = balance.
 
-  const [balance, setBalance] = useState(0);
-  const updateBalance = () => {
-    const newBalance = incomesAmount - expensesAmount - savingsAmount;
-    setBalance(newBalance);
-  };
+    const balance = incomesAmount - expensesAmount - savingsAmount;
 
   return (
     <section className="App">
