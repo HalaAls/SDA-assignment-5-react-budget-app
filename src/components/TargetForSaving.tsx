@@ -28,7 +28,7 @@ const TargetForSaving = (props: TargetForSaving) => {
             onChange={handleChange}
           />
         </div>
-        <button>Reset Target</button>
+        <button className="btn">Reset Target</button>
       </form>
       <p>Target: {target} EUR</p>
       <p>Current Saving: {props.savingAmount} EUR</p>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import IncomeForm from "./IncomeForm";
 import ExpenseForm from "./ExpenseForm";
@@ -31,6 +33,7 @@ const Budget = () => {
 
   return (
     <>
+      <ToastContainer />
       <IncomeForm getIncomeAmount={getIncomeAmount} />
       <ExpenseForm getExpensAmount={getExpensAmount} />
       <TargetForSaving savingAmount={savingsAmount} />

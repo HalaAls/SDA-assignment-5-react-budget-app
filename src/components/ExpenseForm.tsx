@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import IncomeExpenseTypes from "../types/componentsTypes";
+import { toast } from "react-toastify";
 
 type expenseAmount = {
   getExpensAmount: (newExpenseAmount: number) => void;
@@ -30,11 +31,13 @@ const ExpenseForm = (props: expenseAmount) => {
       setExpenses((prevExpenses) => {
         return [...prevExpenses, expense];
       });
+      toast.success("New Expense Has Been Deleted Successfuly");
     }
   };
   const handleDelete = (id: string) => {
     const updatedExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(updatedExpenses);
+    toast.success("Expense Has Been Deleted Successfuly");
   };
   return (
     <div className="formDiv">
@@ -72,7 +75,7 @@ const ExpenseForm = (props: expenseAmount) => {
             required
           />
         </div>
-        <button> Add Expense</button>
+        <button className="btn">Add Expense</button>
       </form>
       <ul>
         {expenses.length > 0 ? (

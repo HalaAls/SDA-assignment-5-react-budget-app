@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import IncomeExpenseTypes from "../types/componentsTypes";
+import { toast } from "react-toastify";
 
 type incomeAmount = {
   getIncomeAmount: (newIncomeAmount: number) => void;
@@ -30,11 +31,13 @@ const IncomeForm = (props: incomeAmount) => {
         console.log(income.id);
         return [...prevIncomes, income];
       });
+      toast.success("New Income Has Been Added Successfuly");
     }
   };
   const handleDelete = (id: string) => {
     const updatedIncomes = incomes.filter((income) => income.id !== id);
     setIncomes(updatedIncomes);
+    toast.success("Income Has Been Deleted Successfuly");
   };
   return (
     <div className="formDiv">
@@ -72,7 +75,7 @@ const IncomeForm = (props: incomeAmount) => {
             required
           />
         </div>
-        <button> Add Income</button>
+        <button className="btn">Add Income</button>
       </form>
       <ul>
         {incomes.length ? (
