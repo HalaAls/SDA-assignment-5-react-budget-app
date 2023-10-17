@@ -31,6 +31,7 @@ const IncomeForm = (props: incomeAmount) => {
         return [...prevIncomes, income];
       });
       toast.success("New Income Has Been Added Successfuly");
+      setIncome({ source: "", amount: "0", date: `${Date.now()}`, id: "0" });
     } else {
       toast.error("Data is Missing");
     }

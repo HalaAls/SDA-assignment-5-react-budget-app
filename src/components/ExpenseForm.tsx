@@ -32,6 +32,7 @@ const ExpenseForm = (props: expenseAmount) => {
         return [...prevExpenses, expense];
       });
       toast.success("New Expense Has Been Deleted Successfuly");
+      setExpense({ source: "", amount: "0", date: `${Date.now()}`, id: "0" });
     }
   };
   const handleDelete = (id: string, expenseAmount: number) => {
