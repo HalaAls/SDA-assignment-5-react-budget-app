@@ -42,7 +42,7 @@ This repository contains a React application with advanced concepts and features
 
 The application includes the following features:
 
-- Apply React Router so when users access "/budget-app", it will render the Budget component.
+- ✅ Apply React Router so when users access "/budget-app", it will render the Budget component.
 
 ## Level 2: Additional Requirements
 

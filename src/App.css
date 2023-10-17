@@ -5,7 +5,7 @@ body {
   background-color: #fafcfd;
   min-height: 100vh;
   display: flex;
-  padding: 15px;
+  padding: 45px;
   justify-content: center;
   color: rgb(5, 4, 4);
   font-size: 15px;
@@ -17,7 +17,6 @@ input {
   padding: 5px;
   border-radius: 5px;
   border: none;
-  /* margin: 5px; */
 }
 .formDiv {
   padding: 10px;
@@ -43,20 +42,34 @@ progress {
   width: 100%;
   padding: 20px;
 }
-.deleteButton{
+.deleteButton {
   width: 20px;
   color: red;
   font-weight: bolder;
   font-size: 20px;
   background-color: transparent;
 }
-li{
+li {
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-ul{
+ul {
   padding: 0px;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+a:-webkit-any-link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: rgb(180, 179, 155);
+  padding: 10px;
+  color: black;
+  font-size: 15px;
 }
