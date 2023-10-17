@@ -32,6 +32,8 @@ const ExpenseForm = (props: expenseAmount) => {
         return [...prevExpenses, expense];
       });
       toast.success("New Expense Has Been Deleted Successfuly");
+    } else{
+      toast.error("Data is Missing");
     }
   };
   const handleDelete = (id: string) => {
@@ -50,7 +52,7 @@ const ExpenseForm = (props: expenseAmount) => {
             id="source"
             value={expense.source}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div>
@@ -61,7 +63,7 @@ const ExpenseForm = (props: expenseAmount) => {
             id="amount"
             value={expense.amount}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div>
@@ -72,7 +74,7 @@ const ExpenseForm = (props: expenseAmount) => {
             id="date"
             value={expense.date}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <button className="btn">Add Expense</button>

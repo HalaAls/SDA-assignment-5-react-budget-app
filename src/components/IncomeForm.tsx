@@ -32,6 +32,8 @@ const IncomeForm = (props: incomeAmount) => {
         return [...prevIncomes, income];
       });
       toast.success("New Income Has Been Added Successfuly");
+    } else{
+      toast.error("Data is Missing");
     }
   };
   const handleDelete = (id: string) => {
@@ -50,7 +52,7 @@ const IncomeForm = (props: incomeAmount) => {
             id="source"
             value={income.source}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div>
@@ -61,7 +63,7 @@ const IncomeForm = (props: incomeAmount) => {
             id="amount"
             value={income.amount}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div>
@@ -72,7 +74,7 @@ const IncomeForm = (props: incomeAmount) => {
             id="date"
             value={income.date}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <button className="btn">Add Income</button>

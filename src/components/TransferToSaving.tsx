@@ -18,7 +18,11 @@ const TransferToSaving = (props: TransferToSaving) => {
     event.preventDefault();
     props.getSavingAmount(transferAmount);
     setTransferAmount(0);
-    toast.success("Transfer Has Been Done Successfuly");
+    if(transferAmount){
+      toast.success("Transfer Has Been Done Successfuly");
+    }else{
+      toast.error("Data is Missing")
+    }
   };
 
   return (
