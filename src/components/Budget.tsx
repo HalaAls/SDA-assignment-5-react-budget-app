@@ -4,7 +4,6 @@ import IncomeForm from "./IncomeForm";
 import ExpenseForm from "./ExpenseForm";
 import TargetForSaving from "./TargetForSaving";
 import TransferToSaving from "./TransferToSaving";
-// import Navigation from "./components/Navigation";
 
 const Budget = () => {
   const [incomesAmount, setIncomesAmount] = useState(0);

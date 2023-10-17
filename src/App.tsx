@@ -4,10 +4,12 @@ import "./App.css";
 
 import Budget from "./components/Budget";
 import Navigation from "./components/Navigation";
+import PageTitle from "./components/PageTitle";
 
 const App = () => {
   return (
     <section className="App">
+      <PageTitle title="Budget" />
       <BrowserRouter>
         <Navigation />
         <Routes>
