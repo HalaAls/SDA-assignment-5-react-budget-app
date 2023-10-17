@@ -10,9 +10,7 @@ import TransferToSaving from "./TransferToSaving";
 const Budget = () => {
   const [incomesAmount, setIncomesAmount] = useState(0);
   const getIncomeAmount = (newIncomeAmount: number) => {
-    console.log(newIncomeAmount);
     setIncomesAmount((prevIncomes) => {
-      console.log(prevIncomes);
       return prevIncomes + newIncomeAmount;
     });
   };

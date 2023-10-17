@@ -28,17 +28,19 @@ const IncomeForm = (props: incomeAmount) => {
     if (income.source && income.amount && income.date) {
       income.id = `${income.date}-${income.amount}-${income.source}`;
       setIncomes((prevIncomes) => {
-        console.log(income.id);
         return [...prevIncomes, income];
       });
       toast.success("New Income Has Been Added Successfuly");
-    } else{
+    } else {
       toast.error("Data is Missing");
     }
   };
-  const handleDelete = (id: string) => {
+
+  const handleDelete = (id: string, incomeAmount: number) => {
     const updatedIncomes = incomes.filter((income) => income.id !== id);
     setIncomes(updatedIncomes);
+    // Update the total income amount when an income is deleted
+    props.getIncomeAmount(-incomeAmount);
     toast.success("Income Has Been Deleted Successfuly");
   };
   return (
@@ -85,7 +87,7 @@ const IncomeForm = (props: incomeAmount) => {
             <li key={income.id}>
               <button
                 className="deleteButton"
-                onClick={() => handleDelete(income.id)}
+                onClick={() => handleDelete(income.id, Number(income.amount))}
               >
                 x
               </button>

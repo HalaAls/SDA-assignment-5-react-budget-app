@@ -32,15 +32,15 @@ const ExpenseForm = (props: expenseAmount) => {
         return [...prevExpenses, expense];
       });
       toast.success("New Expense Has Been Deleted Successfuly");
-    } else{
-      toast.error("Data is Missing");
     }
   };
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: string, expenseAmount: number) => {
     const updatedExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(updatedExpenses);
+    props.getExpensAmount(-expenseAmount);
     toast.success("Expense Has Been Deleted Successfuly");
   };
+
   return (
     <div className="formDiv">
       <form onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ const ExpenseForm = (props: expenseAmount) => {
             <li key={expense.id}>
               <button
                 className="deleteButton"
-                onClick={() => handleDelete(expense.id)}
+                onClick={() => handleDelete(expense.id, Number(expense.amount))}
               >
                 x
               </button>

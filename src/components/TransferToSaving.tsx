@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import IncomeForm from "./IncomeForm";
-import ExpenseForm from "./ExpenseForm";
+// import IncomeForm from "./IncomeForm";
+// import ExpenseForm from "./ExpenseForm";
 import { toast } from "react-toastify";
 
 type TransferToSaving = {
